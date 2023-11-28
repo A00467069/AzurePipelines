@@ -16,12 +16,13 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+    cd "AzurePipeline React"/azure
     npm install
     npm run build
   displayName: 'npm install and build'
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: 'build'
+    PathtoPublish: '"AzurePipeline React"/azure/build'
     ArtifactName: 'drop'
     publishLocation: 'Container'
